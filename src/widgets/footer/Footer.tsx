@@ -68,7 +68,7 @@ export function Footer({ className }: { className?: string }) {
                         <p>© Все права защищены, 2026</p>
                         <div className="flex items-start gap-3 text-body-xs-regular text-secondary desktop:text-background">
                             <img src="/FASIE.svg" alt="FASIE" className="h-10 w-auto mt-1" />
-                            <p className="min-w-[150px]">Проект реализован при поддержке Фонда содействия инновациям</p>
+                            <p className="min-w-[150px]">Федеральный проект при поддержке Фонда содействия инновациям</p>
                         </div>
                         <div className="flex flex-col gap-3 leading-none desktop:hidden">
                             {legalLinks.map((link) => (
