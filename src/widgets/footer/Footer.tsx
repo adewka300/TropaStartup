@@ -23,7 +23,7 @@ export function Footer({ className }: { className?: string }) {
             <div className="relative mx-auto flex w-full max-w-mobile overflow-hidden -mt-24 pt-24 desktop:pb-68">
                 <FooterBg />
 
-                <div className="relative text-text w-max desktop:text-background z-20 mx-auto grid grid-cols-[auto_auto] px-4 mt-10 mb-10 gap-y-10 gap-x-2 xs:gap-x-6 justify-items-start desktop:mt-28 desktop:px-10 desktop:grid-cols-16 desktop:grid-rows-2 desktop:gap-y-6 desktop:gap-x-16">
+                <div className="relative text-text w-full desktop:text-background z-20 mx-auto grid grid-cols-[auto_auto] px-4 mt-10 mb-10 gap-y-10 gap-x-2 xs:gap-x-6 justify-items-start desktop:mt-28 desktop:px-10 desktop:grid-cols-16 desktop:grid-rows-2 desktop:gap-y-6 desktop:gap-x-16">
 
                     <nav className="order-2 col-span-1 desktop:order-1 desktop:col-span-3 w-full desktop:mt-10">
                         <ul className="grid grid-cols-[auto_auto] gap-x-4 gap-y-3 desktop:grid-cols-1 desktop:justify-items-start">
@@ -60,16 +60,23 @@ export function Footer({ className }: { className?: string }) {
                         transition={{ duration: 0.8, delay: 1.7, ease: "easeOut" }}
                         className="order-first col-span-2 flex items-center justify-center justify-self-center desktop:order-2 desktop:col-span-10 desktop:col-start-4 desktop:row-span-2"
                     >
-                        <LogoFull className="w-full max-w-64 object-contain desktop:max-w-min" />
+                        <div className="flex flex-col items-center px-4">
+                            <div className="hidden desktop:flex flex-col items-center">
+                                <div className="flex gap-3 items-center justify-center mb-3">
+                                    <img src="/FASIE.svg" alt="FASIE" className="h-8 desktop:h-10 w-auto" />
+                                    <img src="/putp.png" alt="PUTP" className="h-10 desktop:h-12 w-auto" />
+                                </div>
+                                <p className="text-body-xs-regular text-black text-center max-w-[220px] desktop:max-w-[520px] break-words leading-tight mb-3">
+                                    Проект реализован при поддержке Фонда содействия инновациям в рамках программы "Студенческий стартап" мероприятия "Платформа университетского технологического предпринимательства" федерального проекта “Технологии”
+                                </p>
+                            </div>
+                            <LogoFull className="w-full max-w-64 object-contain desktop:max-w-min" />
+                        </div>
                     </motion.div>
 
                     <div className="order-3 col-span-1 text-secondary desktop:text-background flex flex-col justify-end desktop:justify-start gap-3 text-body-sm-medium w-full max-w-[330px] desktop:order-4 desktop:col-span-3 desktop:row-start-2">
-                        <a href='https://julys-design.ru/'>Дизайн сайта</a>
+                        <a href='https://julys-design.ru/' className="text-body-sm-medium hover:text-primary transition-colors">Дизайн сайта</a>
                         <p>© Все права защищены, 2026</p>
-                        <div className="flex items-start gap-3 text-body-xs-regular text-secondary desktop:text-background">
-                            <img src="/FASIE.svg" alt="FASIE" className="h-10 w-auto mt-1" />
-                            <p className="min-w-[150px]">Федеральный проект при поддержке Фонда содействия инновациям</p>
-                        </div>
                         <div className="flex flex-col gap-3 leading-none desktop:hidden">
                             {legalLinks.map((link) => (
                                 <NavLink
@@ -80,6 +87,16 @@ export function Footer({ className }: { className?: string }) {
                                     {link.label}
                                 </NavLink>
                             ))}
+                        </div>
+                        {/* Mobile-only partner logos and description placed after legal links */}
+                        <div className="desktop:hidden flex flex-col items-center gap-3 mt-3 pb-3 px-0">
+                            <div className="flex gap-3 items-center justify-center">
+                                <img src="/FASIE.svg" alt="FASIE" className="h-8 w-auto" />
+                                <img src="/putp.png" alt="PUTP" className="h-10 w-auto" />
+                            </div>
+                            <p className="text-body-xs-regular text-black text-center max-w-[320px] break-words">
+                                Проект реализован при поддержке Фонда содействия инновациям в рамках программы "Студенческий стартап" мероприятия "Платформа университетского технологического предпринимательства" федерального проекта “Технологии”
+                            </p>
                         </div>
                     </div>
 
@@ -98,6 +115,7 @@ export function Footer({ className }: { className?: string }) {
                         </ul>
                     </nav>
                 </div>
+                
             </div>
         </footer>
     )
